@@ -1,0 +1,43 @@
+{
+	"name": "mcp-server-template",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"predeploy": "pnpm run lint:fix && pnpm run lint:biome && pnpm run type-check",
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"format": "biome format --write",
+		"lint": "NODE_OPTIONS='--no-warnings' eslint .",
+		"lint:fix": "NODE_OPTIONS='--no-warnings' eslint . --fix",
+		"lint:biome": "biome lint --fix",
+		"start": "wrangler dev",
+		"cf-typegen": "wrangler types",
+		"type-check": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@hono/swagger-ui": "^0.5.3",
+		"@hono/zod-openapi": "^0.7.2",
+		"@hono/zod-validator": "^0.7.6",
+		"@modelcontextprotocol/ext-apps": "^1.2.2",
+		"@modelcontextprotocol/sdk": "1.26.0",
+		"agents": "^0.7.6",
+		"hono": "^4.12.7",
+		"zod": "^3.25.76"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.6",
+		"@eslint/js": "^9.39.4",
+		"@types/node": "^24.12.0",
+		"@typescript-eslint/eslint-plugin": "^8.57.0",
+		"@typescript-eslint/parser": "^8.57.0",
+		"eslint": "^9.39.4",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-import-resolver-typescript": "^4.4.4",
+		"eslint-plugin-import": "^2.32.0",
+		"typescript": "5.9.3",
+		"typescript-eslint": "^8.57.0",
+		"wrangler": "4.72.0"
+	},
+	"packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48"
+}
